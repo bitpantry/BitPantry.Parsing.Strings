@@ -1,3 +1,8 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/d3kmyul9d83iuo9g?svg=true)](https://ci.appveyor.com/project/bitpantry/bitpantry-parsing-strings)
+[![Nuget Downloads](https://img.shields.io/nuget/dt/bitpantry.parsing.strings.svg)](http://nuget.org/packages/bitpantry.parsing.strings)
+[![Nuget Current Version](https://img.shields.io/nuget/v/bitpantry.parsing.strings.svg)](http://nuget.org/packages/bitpantry.parsing.strings)
+[![Nuget Pre-version](https://img.shields.io/nuget/vpre/bitpantry.parsing.strings.svg)](http://nuget.org/packages/bitpantry.parsing.strings)
+
 # String Value Parsing
 
 The `BitPantry.Parsing.Strings` library can parse all .NET primitive types.
