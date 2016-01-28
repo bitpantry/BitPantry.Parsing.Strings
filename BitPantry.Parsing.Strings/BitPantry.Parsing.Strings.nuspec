@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title></title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://bitpantryparsing.codeplex.com/license</licenseUrl>
+    <projectUrl>https://bitpantryparsing.codeplex.com</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Rewrote core parser selection logic and IParser interface to better align with the intention of handling any implementation or extension of a specific interface or type. Added support for parsing IDictionary implementations. Also added additional unit tests which led to the resolution of 'fragile' scenarios.</releaseNotes>
+    <copyright>Copyright BitPantry 2015</copyright>
+    <tags>Parsing StringParsing String Utility</tags>
+  </metadata>
+</package>
