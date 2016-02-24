@@ -104,9 +104,7 @@ namespace BitPantry.Parsing.Strings
         public static bool IsNumericType(this Type type)
         {
             if (type == null)
-            {
                 return false;
-            }
 
             switch (Type.GetTypeCode(type))
             {
@@ -122,13 +120,22 @@ namespace BitPantry.Parsing.Strings
                 case TypeCode.UInt32:
                 case TypeCode.UInt64:
                     return true;
-                case TypeCode.Object:
-                    return 
-                        type.IsGenericType && 
-                        type.GetGenericTypeDefinition() == typeof(Nullable<>) && 
-                        IsNumericType(Nullable.GetUnderlyingType(type));
             }
+
+            if (type.IsNullableType())
+                return IsNumericType(Nullable.GetUnderlyingType(type));
+
             return false;
+        }
+
+        /// <summary>
+        /// Determines whether given type is nullable
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <returns>True if the given type is nullable, otherwise false</returns>
+        public static bool IsNullableType(this Type type)
+        {
+            return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
         }
 
     }

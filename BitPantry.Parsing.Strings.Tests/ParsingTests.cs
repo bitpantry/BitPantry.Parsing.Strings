@@ -392,5 +392,33 @@ namespace BitPantry.Parsing.Strings.Tests
             Assert.IsTrue(val["listTwo"].Count == 3);
         }
 
+        [TestMethod]
+        public void Parse_longNullableNullValue_returnsNullLongNullable()
+        {
+            var val = StringParsing.Parse<long?>(null);
+            Assert.AreEqual(val, null);
+        }
+
+        [TestMethod]
+        public void Parse_longNullable_returnsLongNullable()
+        {
+            var val = StringParsing.Parse<long?>("1");
+            Assert.AreEqual(val, 1);
+        }
+
+        [TestMethod]
+        public void Parse_enumNullable_enumNullable()
+        {
+            var val = StringParsing.Parse<StringParsingTestEnum?>("1");
+            Assert.AreEqual(val, StringParsingTestEnum.ThisIsValue1);
+        }
+
+        [TestMethod]
+        public void Parse_nullEnumNullable_null()
+        {
+            var val = StringParsing.Parse<StringParsingTestEnum?>(null);
+            Assert.AreEqual(val, null);
+        }
+
     }
 }
