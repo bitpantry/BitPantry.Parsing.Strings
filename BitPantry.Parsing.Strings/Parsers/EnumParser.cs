@@ -11,12 +11,22 @@ namespace BitPantry.Parsing.Strings.Parsers
     {
         public bool CanParseType(Type type)
         {
-            return type.IsEnum;
+            return (Nullable.GetUnderlyingType(type) ?? type).IsEnum;
         }
 
         public object Parse(string value, Type targetType)
         {
             if (targetType == null) throw new ArgumentNullException(nameof(targetType));
+
+            if(value == null)
+            {
+                if (targetType.IsNullableType())
+                    return null;
+
+                throw new ArgumentException($"Cannot parse null value as type {targetType}");
+            }
+
+            targetType = Nullable.GetUnderlyingType(targetType) ?? targetType;
 
             try
             {
@@ -28,7 +38,7 @@ namespace BitPantry.Parsing.Strings.Parsers
                 if(!Enum.IsDefined(targetType, enumValue))
                     throw new ArgumentException($"The enum, \"{targetType}\" does not define a value for \"{value}\"");
 
-                return  enumValue;
+                return enumValue;
             }
             catch (ArgumentException)
             {

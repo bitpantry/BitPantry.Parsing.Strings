@@ -11,36 +11,46 @@ namespace BitPantry.Parsing.Strings.Parsers
     {
         public virtual bool CanParseType(Type type)
         {
-            return type == typeof (TType);
+            return (Nullable.GetUnderlyingType(type) ?? type) == typeof(TType);
         }
-
+       
         public virtual object Parse(string value, Type targetType = null)
         {
+            if(value == null)
+            {
+                if (targetType.IsNullableType())
+                    return null;
+
+                throw new ArgumentException($"Cannot parse null value as type {targetType}");
+            }
+            
+            targetType = Nullable.GetUnderlyingType(targetType) ?? targetType;
+
             object returnValue;
 
-            if (typeof(TType) == typeof(bool)) { returnValue = ParseBool(value); }
-            else if (typeof(TType) == typeof(DateTime)) { returnValue = ParseDateTime(value); }
-            else if (typeof(TType) == typeof(string)) { returnValue = value; }
-            else if (typeof(TType) == typeof(char)) { returnValue = value.FirstOrDefault(); }
-            else if (typeof(TType) == typeof(byte)) { returnValue = ParseNumber<byte>(value); }
-            else if (typeof(TType) == typeof(sbyte)) { returnValue = ParseNumber<sbyte>(value); }
-            else if (typeof(TType) == typeof(short)) { returnValue = ParseNumber<short>(value); }
-            else if (typeof(TType) == typeof(ushort)) { returnValue = ParseNumber<ushort>(value); }
-            else if (typeof(TType) == typeof(int)) { returnValue = ParseNumber<int>(value); }
-            else if (typeof(TType) == typeof(uint)) { returnValue = ParseNumber<uint>(value); }
-            else if (typeof(TType) == typeof(long)) { returnValue = ParseNumber<long>(value); }
-            else if (typeof(TType) == typeof(ulong)) { returnValue = ParseNumber<ulong>(value); }
-            else if (typeof(TType) == typeof(float)) { returnValue = ParseNumber<float>(value); }
-            else if (typeof(TType) == typeof(double)) { returnValue = ParseNumber<double>(value); }
-            else if (typeof(TType) == typeof(decimal)) { returnValue = ParseNumber<decimal>(value); }
+            if (targetType == typeof(bool)) { returnValue = ParseBool(value); }
+            else if (targetType == typeof(DateTime)) { returnValue = ParseDateTime(value); }
+            else if (targetType == typeof(string)) { returnValue = value; }
+            else if (targetType == typeof(char)) { returnValue = value.FirstOrDefault(); }
+            else if (targetType == typeof(byte)) { returnValue = ParseNumber<byte>(value); }
+            else if (targetType == typeof(sbyte)) { returnValue = ParseNumber<sbyte>(value); }
+            else if (targetType == typeof(short)) { returnValue = ParseNumber<short>(value); }
+            else if (targetType == typeof(ushort)) { returnValue = ParseNumber<ushort>(value); }
+            else if (targetType == typeof(int)) { returnValue = ParseNumber<int>(value); }
+            else if (targetType == typeof(uint)) { returnValue = ParseNumber<uint>(value); }
+            else if (targetType == typeof(long)) { returnValue = ParseNumber<long>(value); }
+            else if (targetType == typeof(ulong)) { returnValue = ParseNumber<ulong>(value); }
+            else if (targetType == typeof(float)) { returnValue = ParseNumber<float>(value); }
+            else if (targetType == typeof(double)) { returnValue = ParseNumber<double>(value); }
+            else if (targetType == typeof(decimal)) { returnValue = ParseNumber<decimal>(value); }
             else
             {
                 throw new ArgumentException(
                     string.Format("Cannot parse value as {0}. The conversion is not defined. :: value={1}",
-                        typeof(Type).FullName, value));
+                       targetType.FullName, value));
             }
 
-            return (TType)Convert.ChangeType(returnValue, typeof(TType));
+            return Convert.ChangeType(returnValue, typeof(TType));
         }
 
         /// <summary>
