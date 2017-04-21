@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using BitPantry.Parsing.Strings.Configuration;
@@ -11,7 +12,7 @@ namespace BitPantry.Parsing.Strings
     /// </summary>
     public static class StringParsing
     {
-        private static Dictionary<Type, IParser> _typeParserDict;
+        private static ConcurrentDictionary<Type, IParser> _typeParserDict;
         private static List<IParser> _parsers;
 
         /// <summary>
@@ -29,7 +30,7 @@ namespace BitPantry.Parsing.Strings
         private static void InitializeParsers()
         {
             _parsers = new List<IParser>();
-            _typeParserDict = new Dictionary<Type, IParser>();
+            _typeParserDict = new ConcurrentDictionary<Type, IParser>();
          
             // load standard parsers
 
@@ -175,7 +176,7 @@ namespace BitPantry.Parsing.Strings
 
                 if (parsers.Any())
                 {
-                    _typeParserDict.Add(forType, parsers[0]);
+                    _typeParserDict.TryAdd(forType, parsers[0]);
                     return parsers[0];
                 }
 
