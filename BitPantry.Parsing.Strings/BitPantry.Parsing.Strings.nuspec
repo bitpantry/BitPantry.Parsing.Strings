@@ -10,8 +10,8 @@
     <projectUrl>https://bitpantryparsing.codeplex.com</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Rewrote core parser selection logic and IParser interface to better align with the intention of handling any implementation or extension of a specific interface or type. Added support for parsing IDictionary implementations. Also added additional unit tests which led to the resolution of 'fragile' scenarios.</releaseNotes>
-    <copyright>Copyright BitPantry 2015</copyright>
+    <releaseNotes>Fixed bug where null parsed as string would throw an exception instead of returning null</releaseNotes>
+    <copyright>Copyright BitPantry 2017</copyright>
     <tags>Parsing StringParsing String Utility</tags>
   </metadata>
 </package>

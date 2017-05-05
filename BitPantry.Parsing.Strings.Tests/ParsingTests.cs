@@ -420,5 +420,11 @@ namespace BitPantry.Parsing.Strings.Tests
             Assert.AreEqual(val, null);
         }
 
+        [TestMethod]
+        public void Parse_nullString_null()
+        {
+            var str = StringParsing.Parse<string>(null);
+            Assert.IsNull(str);
+        }
     }
 }
