@@ -18,7 +18,7 @@ namespace BitPantry.Parsing.Strings.Parsers
         {
             if(value == null)
             {
-                if (targetType.IsNullableType() || targetType == typeof(string))
+                if (targetType.IsNullableType())
                     return null;
 
                 throw new ArgumentException($"Cannot parse null value as type {targetType}");

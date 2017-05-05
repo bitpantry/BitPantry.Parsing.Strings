@@ -423,8 +423,10 @@ namespace BitPantry.Parsing.Strings.Tests
         [TestMethod]
         public void Parse_nullString_null()
         {
-            var str = StringParsing.Parse<string>(null);
+            var str = StringParsing.SafeParse<string>(null);
             Assert.IsNull(str);
         }
+
+
     }
 }
