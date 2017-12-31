@@ -428,10 +428,10 @@ namespace BitPantry.Parsing.Strings.Tests
         }
 
         [TestMethod]
-        public void Parse_nullString_null()
+        public void SafeParse_nullStringWithDefault_default()
         {
-            var str = StringParsing.Parse<string>(null);
-            Assert.IsNull(str);
+            var str = StringParsing.SafeParse(null, "defaultValue");
+            Assert.AreEqual(str, "defaultValue");
         }
         
 
