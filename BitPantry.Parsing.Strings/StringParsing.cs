@@ -252,6 +252,44 @@ namespace BitPantry.Parsing.Strings
             catch { return defaultValue; }
         }
 
+        /// <summary>
+        /// Attempts to parse and return the specified value. If it fails, the default value of the requested type is returned
+        /// </summary>
+        /// <param name="forType">The type to parse as</param>
+        /// <param name="value">The string value to parse</param>
+        /// <returns>The parsed value, or the default of the requested type</returns>
+        public static object SafeParseForType(Type forType, string value)
+        {
+            try
+            {
+                return GetParser(forType).Parse(value, forType);
+            }
+            catch
+            {
+                // return empty collection if type is an ICollection or array implementation
+
+                if (forType.IsGenericCollectionImplementation() || forType.IsArray || forType.IsValueType)
+                    return Activator.CreateInstance(forType);
+
+                // otherwise return null for reference type
+
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Attempts to parse and return the specified value. If it fails, the default value of the requested type is returned
+        /// </summary>
+        /// <param name="forType">The type to parse as</param>
+        /// <param name="value">The string value to parse</param>
+        /// <param name="defaultValue">The default value</param>
+        /// <returns>The parsed value, or the default of the requested type</returns>
+        public static object SafeParseForType(Type forType, string value, object defaultValue)
+        {
+            try { return GetParser(forType).Parse(value, forType); }
+            catch { return defaultValue; }
+        }
+
         #endregion
     }
 }
