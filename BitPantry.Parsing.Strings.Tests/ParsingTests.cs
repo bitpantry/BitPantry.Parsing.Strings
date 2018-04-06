@@ -95,6 +95,13 @@ namespace BitPantry.Parsing.Strings.Tests
         }
 
         [TestMethod]
+        public void Parse_stringList_returnsStringArray()
+        {
+            var result = StringParsing.Parse<string[]>("hello,goodbye");
+            Assert.AreEqual(result.Length, 2);
+        }
+
+        [TestMethod]
         public void Parse_char_returnsChar()
         {
             var result = StringParsing.Parse<char>("a");
@@ -434,7 +441,35 @@ namespace BitPantry.Parsing.Strings.Tests
             Assert.AreEqual(str, "defaultValue");
         }
         
+        [TestMethod]
+        public void SafeParseForType_int32_default()
+        {
+            var def = StringParsing.SafeParseForType(typeof(int), "0");
+            Assert.AreEqual(def, 0);
+        }
 
+        [TestMethod]
+        public void SafeParseForType_list_default()
+        {
+            var def = StringParsing.SafeParseForType(typeof(List<string>), "asdf,asdf,asdf");
+            Assert.IsNotNull(def);
+            Assert.AreEqual(def.GetType(), typeof(List<string>));
+        }
+
+        [TestMethod]
+        public void SafeParseForType_array_default()
+        {
+            var def = StringParsing.SafeParseForType(typeof(string[]), "asdf,asdf,asdf");
+            Assert.IsNotNull(def);
+            Assert.AreEqual(def.GetType(), typeof(string[]));
+        }
+
+        [TestMethod]
+        public void SafeParseForType_int32WithDefault_default()
+        {
+            var def = StringParsing.SafeParseForType(typeof(int), "x", 3);
+            Assert.AreEqual(def, 3);
+        }
 
     }
 }
