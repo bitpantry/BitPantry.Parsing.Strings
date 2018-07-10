@@ -2,7 +2,6 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using BitPantry.Parsing.Strings.Configuration;
 using BitPantry.Parsing.Strings.Parsers;
 
 namespace BitPantry.Parsing.Strings
@@ -53,16 +52,6 @@ namespace BitPantry.Parsing.Strings
             AddParser(typeof(ArrayParser));
             AddParser(typeof(EnumParser));
             AddParser(typeof(KeyValuePairParser));
-
-            // load configured parsers
-
-            var parserAppConfig = (StringValueParserConfiguration)
-                System.Configuration.ConfigurationManager.GetSection(
-                    Constants.StringParserConfigurationSectionName);
-            if (parserAppConfig == null) return;
-
-            foreach (var item in parserAppConfig.Items)
-                AddParser(item.Type);
         }
 
         #endregion

@@ -64,7 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BitPantry.Parsing.Strings\BitPantry.Parsing.Strings.csproj">
-      <Project>{2eb9795b-810a-4f35-a3fe-5646342a98bd}</Project>
+      <Project>{1e221bcf-100c-46e3-9571-c7b09c51474f}</Project>
       <Name>BitPantry.Parsing.Strings</Name>
     </ProjectReference>
   </ItemGroup>
