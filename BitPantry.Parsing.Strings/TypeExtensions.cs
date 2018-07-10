@@ -135,7 +135,7 @@ namespace BitPantry.Parsing.Strings
         /// <returns>True if the given type is nullable, otherwise false</returns>
         public static bool IsNullableType(this Type type)
         {
-            return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
+            return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>); 
         }
 
     }
