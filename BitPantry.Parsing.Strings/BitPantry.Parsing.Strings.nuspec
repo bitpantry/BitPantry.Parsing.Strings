@@ -7,10 +7,10 @@
     <authors>$author$</authors>
     <owners>$author$</owners>
     <licenseUrl>https://bitpantryparsing.codeplex.com/license</licenseUrl>
-    <projectUrl>https://bitpantryparsing.codeplex.com</projectUrl>
+    <projectUrl>https://github.com/bitpantry/BitPantry.Parsing.Strings</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Fixed bug where null parsed as string would throw an exception instead of returning null</releaseNotes>
+    <releaseNotes>Upgraded to .NET Framework 4.6.1</releaseNotes>
     <copyright>Copyright BitPantry 2017</copyright>
     <tags>Parsing StringParsing String Utility</tags>
   </metadata>
