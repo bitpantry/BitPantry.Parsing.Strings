@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BitPantry.Parsing.Strings;
-using BitPantry.Parsing.Strings.Configuration;
 
 namespace BitPantry.Parsing.Strings.Tests
 {
