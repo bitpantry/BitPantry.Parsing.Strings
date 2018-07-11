@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>BitPantry</Authors>
+    <Company>BitPantry</Company>
+    <Description>A flexible string parsing library.</Description>
+    <Copyright>BitPantry 2018</Copyright>
+    <PackageLicenseUrl>https://github.com/bitpantry/BitPantry.Parsing.Strings</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/bitpantry/BitPantry.Parsing.Strings</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/bitpantry/BitPantry.Parsing.Strings</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
 </Project>

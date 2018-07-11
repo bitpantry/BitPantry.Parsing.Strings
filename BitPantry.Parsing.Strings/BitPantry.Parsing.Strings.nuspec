@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/bitpantry/BitPantry.Parsing.Strings</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Upgraded to .NET Framework 4.6.1</releaseNotes>
+    <releaseNotes>Converted to .NET Standard 2.0; Removed XML configuration (can still be done in code) to retrofit all System.Configuration dependencies later.</releaseNotes>
     <copyright>Copyright BitPantry 2017</copyright>
     <tags>Parsing StringParsing String Utility</tags>
   </metadata>
