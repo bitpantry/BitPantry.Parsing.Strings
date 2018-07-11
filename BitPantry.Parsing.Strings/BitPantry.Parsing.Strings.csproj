@@ -11,8 +11,11 @@
     <RepositoryUrl>https://github.com/bitpantry/BitPantry.Parsing.Strings</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.1.0</Version>
     <AssemblyVersion>1.0.1.0</AssemblyVersion>
     <FileVersion>1.0.1.0</FileVersion>
+    <PackageVersion>1.0.1.0</PackageVersion>
+    <InformationalVersion>1.0.1.0</InformationalVersion>
   </PropertyGroup>
 
 </Project>
