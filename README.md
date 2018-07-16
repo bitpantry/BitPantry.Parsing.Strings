@@ -1,7 +1,6 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/d3kmyul9d83iuo9g?svg=true)](https://ci.appveyor.com/project/bitpantry/bitpantry-parsing-strings)
+[![Build status](https://ci.appveyor.com/api/projects/status/lbbuc8g8x19xovko?svg=true)](https://ci.appveyor.com/project/bitpantry/bitpantry-parsing-strings-1bjvn)
 [![Nuget Downloads](https://img.shields.io/nuget/dt/bitpantry.parsing.strings.svg)](http://nuget.org/packages/bitpantry.parsing.strings)
 [![Nuget Current Version](https://img.shields.io/nuget/v/bitpantry.parsing.strings.svg)](http://nuget.org/packages/bitpantry.parsing.strings)
-[![Nuget Pre-version](https://img.shields.io/nuget/vpre/bitpantry.parsing.strings.svg)](http://nuget.org/packages/bitpantry.parsing.strings)
 
 # String Value Parsing
 
