@@ -16,6 +16,11 @@ namespace BitPantry.Parsing.Strings.Parsers
 
         public object Parse(string value, Type targetType)
         {
+            return Parse(value, targetType, caseInsensitive: true);
+        }
+
+        public object Parse(string value, Type targetType, bool caseInsensitive = true)
+        {
             if (targetType == null) throw new ArgumentNullException(nameof(targetType));
 
             if(value == null)
@@ -33,7 +38,7 @@ namespace BitPantry.Parsing.Strings.Parsers
                 if(!CanParseType(targetType))
                     throw new InvalidOperationException($"Cannot parse value, \"{value}\", and type, \"{targetType.FullName}\"");
 
-                var enumValue = Enum.Parse(targetType, value);
+                var enumValue = Enum.Parse(targetType, value, caseInsensitive);
 
                 if(!Enum.IsDefined(targetType, enumValue))
                     throw new ArgumentException($"The enum, \"{targetType}\" does not define a value for \"{value}\"");
